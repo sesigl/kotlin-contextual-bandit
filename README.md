@@ -36,7 +36,7 @@ contextual bandits. Nevertheless, I think it's very hard to use for beginner. Mi
 
 Url: https://aws.amazon.com/de/blogs/aws/amazon-sagemaker-rl-managed-reinforcement-learning-with-amazon-sagemaker/
 
-Amazon provides example for reinforcement problems, that spans toward contextual bandits. Nevertheless, it's not well 
+Amazon provides examples for reinforcement problems, that spans toward contextual bandits. Nevertheless, it's not well 
 maintained example that does not work anymore. It does not focus on the actual problem that, again, is 
 essential to build an end-to-end pipeline. The image that does the work uses vowpal wabbit too. In my opinion, the example
 could be stripped down to a few hundred lines of code. Well, that would be 2 easy, right ? Unfortunately, they decided to make it
@@ -47,11 +47,11 @@ a huge blackbox that will cause you troubles in production.
 ### Motivation
 
 My solution to the problem is keep it simple! Build it from scratch, understand challenges, add complexity when needed, and eventually use a library. 
-Maybe you are happy with an existing library, or you want to build on this implementation. There is production ready yet, so let's see what we get 😉.
+Maybe you are happy with an existing library, or you want to build on this implementation. There is not production ready yet, so let's see what we get 😉.
 
 ### Implementation
 
-I will build during multiple sessions a bandit algorithm, documented and documented from different angles,
+I will build during multiple sessions a bandit algorithm, documented from different angles,
 explaining and solving the core problems. There is no math PhD required. Only rationality and software engineering skills.
 
 All sessions will be streamed on twitch. So you can not only participate via GitHub, you can actually participate in realtime.
@@ -64,6 +64,6 @@ Additionally, sessions will be covered by articles:
 In comparison to image processing or natural language processing, the performance constrains of a JVM
 based solution are totally fine for a high traffic production usage. The example in this repository
 will be written in Kotlin. Anyhow, the aggregation of thousands of events per second should but
-implemented in a horizontal scalable solution, for example based any ETL solution like [GCP Dataflow](https://cloud.google.com/dataflow) or
-[AWS Data Pipeline](https://aws.amazon.com/de/datapipeline/). The output will contain calculation results
-and can be easily processed in Java to train and update the model.
+implemented in a horizontal scalable solution, for example any ETL solution like [GCP Dataflow](https://cloud.google.com/dataflow) or
+[AWS Data Pipeline](https://aws.amazon.com/de/datapipeline/) can do the job. The output will contain 
+calculation results and can easily be processed in Kotlin to train and update the model.
