@@ -16,9 +16,9 @@ are many options? Additionally, new articles are created all the time.
 
 An ideal solution requires some advanced approaches:
 
-- pick 1 out of many articles,
-- a visitors taste is different, this includes comparing one without with another, but maybe also the taste of a single person in the morning and in the evening,
-- new articles can outperform a previous best article.
+- Pick 1 out of many articles,
+- A visitors taste is different, this includes comparing one with another, but maybe also the taste of a single person in the morning and in the evening,
+- New articles can outperform a previous best article.
 
 ## Existing solutions
 
