@@ -1,10 +1,12 @@
 # Kotlin-contextual-bandit
 
-In many real world problems, it's not trivial go for one solution out of many possible solutions.
+In many real world problems, it's not trivial go for one solution out of many possible solutions based
+on a certain situation.
 This problem is described as [Multi-arm bandit problem](https://en.wikipedia.org/wiki/Multi-armed_bandit). 
 
-*Disclaimer: I am not a machine learning expert. I built neuronal network for fun, used them for natural language processing and image processing, and 
-I really dislike the somehow hostile terminology that acts as an artificial boundary to machine learning. I will simplify
+*Disclaimer: I am not a machine learning expert. I built neuronal network and other algorithms for fun, 
+used them for natural language processing and image processing, and I really dislike the somehow 
+hostile terminology that acts as an artificial boundary to machine learning for beginners. I will simplify
 everything as much as possible for clarity to enable this craftsmanship to everybody.*
 
 ## Example
