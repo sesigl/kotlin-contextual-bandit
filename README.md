@@ -9,6 +9,8 @@ used them for natural language processing and image processing, and I really dis
 hostile terminology that acts as an artificial boundary to machine learning for beginners. I will simplify
 everything as much as possible for clarity to enable this craftsmanship to everybody.*
 
+![Kotlin-contextual-bandit Class Diagram](./documentation/kotlin-contextual-bandit.drawio.svg)
+
 ## Example
 
 Given you want to show a preview of an article on top of a website. What article do you show if there 

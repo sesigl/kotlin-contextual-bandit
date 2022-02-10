@@ -8,10 +8,15 @@ package org.fullsack101.bandit.context
 data class Context(val contextAttributes: List<ContextAttribute>) {
 
     init {
-        require(hasOnlyUniqueAttributes())
+        require(hasOnlyUniqueAttributes()) {
+            val missingAttributeKeys = contextAttributes
+                .map(ContextAttribute::key)
+                .map(ContextAttributeKey::key)
+                .joinToString(",")
+            "Only unique ContextAttribute keys are allowed, received: $missingAttributeKeys"
+        }
     }
 
     private fun hasOnlyUniqueAttributes() =
-        contextAttributes.map(ContextAttribute::id).toSet().size == contextAttributes.map(ContextAttribute::id).toList().size
-
+        contextAttributes.map(ContextAttribute::key).toSet().size == contextAttributes.map(ContextAttribute::key).toList().size
 }

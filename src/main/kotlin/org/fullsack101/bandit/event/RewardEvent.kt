@@ -1,5 +1,9 @@
 package org.fullsack101.bandit.event
 
+import org.fullsack101.bandit.context.Context
+import org.fullsack101.bandit.model.ModelAction
+import org.fullsack101.bandit.model.ModelReward
+
 /**
  * Event that is processed to update the algorithm.
  *
@@ -8,4 +12,4 @@ package org.fullsack101.bandit.event
  *
  * For simplicity, we just go with a single event for now. A BatchRewardEvent needs to be implemented.
  */
-data class RewardEvent(val reward: Float)
+data class RewardEvent(val reward: ModelReward, val context: Context, val action: ModelAction)
