@@ -1,4 +1,4 @@
-package org.fullsack101.bandit.model
+package org.fullsack101.bandit.predictor
 
 import org.fullsack101.bandit.context.ContextAttributeKey
 import java.util.concurrent.ConcurrentHashMap

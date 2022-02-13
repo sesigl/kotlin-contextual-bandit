@@ -2,13 +2,13 @@ package org.fullsack101.bandit.executor
 
 import org.fullsack101.bandit.context.Context
 import org.fullsack101.bandit.event.RewardEvent
-import org.fullsack101.bandit.model.BanditModel
-import org.fullsack101.bandit.model.ModelAction
+import org.fullsack101.bandit.predictor.BanditPredictor
+import org.fullsack101.bandit.predictor.ModelAction
 
-class BanditExecutor(private val banditModel: BanditModel, private val knownActions: Set<String>) {
+class BanditExecutor(private val banditPredictor: BanditPredictor, private val knownActions: Set<String>) {
 
     fun process(rewardEvent: RewardEvent) {
-        banditModel.train(
+        banditPredictor.train(
             context = rewardEvent.context,
             target = rewardEvent.action,
             reward = rewardEvent.reward
@@ -21,6 +21,6 @@ class BanditExecutor(private val banditModel: BanditModel, private val knownActi
 
         // if exploitation, get the best performing target
 
-        return banditModel.predict(context = context)
+        return banditPredictor.calculateRecommendedActionFor(context = context)
     }
 }

@@ -4,10 +4,10 @@ import assertk.assertThat
 import assertk.assertions.isEqualTo
 import org.fullsack101.bandit.context.Context
 import org.fullsack101.bandit.event.RewardEvent
-import org.fullsack101.bandit.model.BanditModel
-import org.fullsack101.bandit.model.ContextAttributeData
-import org.fullsack101.bandit.model.ModelAction
-import org.fullsack101.bandit.model.ModelReward
+import org.fullsack101.bandit.predictor.BanditPredictor
+import org.fullsack101.bandit.predictor.ContextAttributeData
+import org.fullsack101.bandit.predictor.ModelAction
+import org.fullsack101.bandit.predictor.ModelReward
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
@@ -20,7 +20,7 @@ class BanditExecutorTest {
     @Disabled
     internal fun name() {
         val banditExecutor = BanditExecutor(
-            banditModel = BanditModel(contextAttributeData = ContextAttributeData()),
+            banditPredictor = BanditPredictor(contextAttributeData = ContextAttributeData()),
             knownActions = emptySet()
         )
 

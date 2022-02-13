@@ -1,8 +1,8 @@
 package org.fullsack101.bandit.event
 
 import org.fullsack101.bandit.context.Context
-import org.fullsack101.bandit.model.ModelAction
-import org.fullsack101.bandit.model.ModelReward
+import org.fullsack101.bandit.predictor.ModelAction
+import org.fullsack101.bandit.predictor.ModelReward
 
 /**
  * Event that is processed to update the algorithm.
