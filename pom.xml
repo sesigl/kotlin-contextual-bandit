@@ -16,8 +16,9 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <kotlin.version>1.6.10</kotlin.version>
     <kotlin.code.style>official</kotlin.code.style>
-    <junit.version>5.4.0</junit.version>
+    <junit.version>5.8.2</junit.version>
     <assertk.version>0.25</assertk.version>
+    <jackson.version>2.13.1</jackson.version>
   </properties>
 
   <dependencies>
@@ -30,6 +31,16 @@
       <groupId>org.jetbrains.kotlin</groupId>
       <artifactId>kotlin-reflect</artifactId>
       <version>${kotlin.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.module</groupId>
+      <artifactId>jackson-module-kotlin</artifactId>
+      <version>${jackson.version}</version>
     </dependency>
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
