@@ -17,6 +17,15 @@ class BanditPredictorTest {
     }
 
     @Test
+    fun `calculateRecommendedActionFor - throws exception for unknown action events`() {
+        val banditPredictor = BanditPredictor()
+
+        assertThrows<java.lang.IllegalArgumentException> {
+            banditPredictor.train(TEST_CONTEXT, ACTION_A, ModelReward(BigDecimal.ONE))
+        }
+    }
+
+    @Test
     fun `calculateRecommendedActionFor - returns exception if no actions are know`() {
         val banditPredictor = BanditPredictor()
 

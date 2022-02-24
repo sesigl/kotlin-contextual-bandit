@@ -23,6 +23,12 @@ class BanditPredictor(private val random: Random = Random.Default) {
     private val knownActions: MutableSet<ModelAction> = ConcurrentHashMap.newKeySet()
 
     fun train(context: Context, target: ModelAction, reward: ModelReward) {
+        require(knownActions.contains(target)) {
+            "Given action '${target.action}' unknown. " +
+                "Only actions '${knownActions.map { it.action }}' known. " +
+                "Register the action '${target.action}' before."
+        }
+
         contextAttributeData.store(context, target, reward)
     }
 

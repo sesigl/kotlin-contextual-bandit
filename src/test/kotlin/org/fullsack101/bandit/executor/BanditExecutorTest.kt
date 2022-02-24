@@ -9,7 +9,6 @@ import org.fullsack101.bandit.explorationexploitation.Percentage
 import org.fullsack101.bandit.predictor.BanditPredictor
 import org.fullsack101.bandit.predictor.ModelAction
 import org.fullsack101.bandit.predictor.ModelReward
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import java.math.BigDecimal
 
@@ -19,12 +18,11 @@ private val TEST_ACTION = ModelAction("TEST_ACTION")
 class BanditExecutorTest {
 
     @Test
-    @Disabled
-    internal fun name() {
+    internal fun `process - process single event for registered action`() {
         val banditExecutor = BanditExecutor(
             banditPredictor = BanditPredictor(),
             explorationExploitationSelector = ExplorationExploitationGreedySelector(
-                explorationPercentage = Percentage(30)
+                explorationPercentage = Percentage(0)
             )
         )
 
@@ -34,6 +32,8 @@ class BanditExecutorTest {
             context = context,
             action = TEST_ACTION
         )
+
+        banditExecutor.register(TEST_ACTION)
 
         banditExecutor.process(rewardEvent)
 

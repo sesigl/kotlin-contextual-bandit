@@ -31,4 +31,8 @@ class BanditExecutor(
             banditPredictor.calculateRecommendedActionFor(context = context)
         }
     }
+
+    fun register(modelAction: ModelAction) {
+        banditPredictor.registerAction(modelAction)
+    }
 }
