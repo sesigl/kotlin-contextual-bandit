@@ -2,10 +2,15 @@ package org.fullsack101.bandit.executor
 
 import org.fullsack101.bandit.context.Context
 import org.fullsack101.bandit.event.RewardEvent
+import org.fullsack101.bandit.explorationexploitation.ExplorationExploitationGreedySelector
+import org.fullsack101.bandit.explorationexploitation.PredictionType
 import org.fullsack101.bandit.predictor.BanditPredictor
 import org.fullsack101.bandit.predictor.ModelAction
 
-class BanditExecutor(private val banditPredictor: BanditPredictor, private val knownActions: Set<String>) {
+class BanditExecutor(
+    private val banditPredictor: BanditPredictor,
+    private val explorationExploitationSelector: ExplorationExploitationGreedySelector,
+) {
 
     fun process(rewardEvent: RewardEvent) {
         banditPredictor.train(
@@ -17,10 +22,13 @@ class BanditExecutor(private val banditPredictor: BanditPredictor, private val k
 
     fun calculateTargetToServeFor(context: Context): ModelAction {
 
-        // TODO: decide of exploration or exploitation
+        val nextPredictionType =
+            explorationExploitationSelector.calculateNextPredictionType()
 
-        // if exploitation, get the best performing target
-
-        return banditPredictor.calculateRecommendedActionFor(context = context)
+        return if (nextPredictionType == PredictionType.EXPLORATION) {
+            banditPredictor.calculateRandomActionFor(context)
+        } else {
+            banditPredictor.calculateRecommendedActionFor(context = context)
+        }
     }
 }

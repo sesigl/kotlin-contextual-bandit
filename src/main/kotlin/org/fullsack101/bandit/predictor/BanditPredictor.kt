@@ -29,10 +29,7 @@ class BanditPredictor(private val random: Random = Random.Default) {
     fun calculateRecommendedActionFor(context: Context): ModelAction {
 
         if (contextAttributeData.isEmpty()) {
-            return knownActions
-                .asSequence()
-                .shuffled(random)
-                .find { true } ?: throw NoActionsDefinedException(context)
+            return calculateRandomActionFor(context)
         }
 
         // values are filtered by != null and will never be null
@@ -52,6 +49,13 @@ class BanditPredictor(private val random: Random = Random.Default) {
             .find { true } ?: throw IllegalStateException("Max reward actions empty")
 
         return randomAction.key
+    }
+
+    fun calculateRandomActionFor(context: Context): ModelAction {
+        return knownActions
+            .asSequence()
+            .shuffled(random)
+            .find { true } ?: throw NoActionsDefinedException(context)
     }
 
     fun registerAction(action: ModelAction) {

@@ -4,6 +4,8 @@ import assertk.assertThat
 import assertk.assertions.isEqualTo
 import org.fullsack101.bandit.context.Context
 import org.fullsack101.bandit.event.RewardEvent
+import org.fullsack101.bandit.explorationexploitation.ExplorationExploitationGreedySelector
+import org.fullsack101.bandit.explorationexploitation.Percentage
 import org.fullsack101.bandit.predictor.BanditPredictor
 import org.fullsack101.bandit.predictor.ModelAction
 import org.fullsack101.bandit.predictor.ModelReward
@@ -21,7 +23,9 @@ class BanditExecutorTest {
     internal fun name() {
         val banditExecutor = BanditExecutor(
             banditPredictor = BanditPredictor(),
-            knownActions = emptySet()
+            explorationExploitationSelector = ExplorationExploitationGreedySelector(
+                explorationPercentage = Percentage(30)
+            )
         )
 
         val context = Context(contextAttributes = emptyList())
